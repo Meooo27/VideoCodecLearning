@@ -73,7 +73,7 @@ Y
 | U V U V |                             U10(2)   V10(2)  |  U11(3)   V11(3)
 |
 |                                       Loop by UV: 
-|                                             uIndex   = currentRowUV * width + currentColUV;
+|                                             uIndex   = (currentRowUV * width) + (currentColUV * 2);
 |                                             vIndex   = uIndex + 1;
 |
 |                                       From UV postion we can calculate Y Postion: (based on: YWidth = 2 * UVWidth)
