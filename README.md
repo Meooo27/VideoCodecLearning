@@ -95,16 +95,16 @@ Y
 - RGB converts into Matrix
 ```
 0_______________________________________________________________X            Then, How to change RGB to YUV?
-|--------------------------- w --------------------------- |                       Y00 = R00 G00 B00
+|--------------------------- 3w -------------------------- |                       Y00 = R00 G00 B00
 | R00 G00 B00    R01 G01 B01    R02 G02 B02    R03 G03 B03 |                       Y01 = R01 G01 B01
 | R10 G10 B10    R11 G11 B11    R12 G12 B12    R13 G13 B13 |                       Y10 = R10 G10 B10
 | R20 G20 B20    R21 G21 B21    R22 G22 B22    R23 G23 B23 |                       Y11 = R11 G11 B11
 | R30 G30 B30    R31 G31 B31    R32 G32 B32    R33 G33 B33 |                 Loop by Y:      
 | R40 G40 B40    R41 G41 B41    R42 G42 B42    R43 G43 B43 | h                     yIndex  = currentRow * width + currentCol;
-| R50 G50 B50    R51 G51 B51    R52 G52 B52    R53 G53 B53 |                       RIndex  = yIndex * 3 + 0;
-| R60 G60 B60    R61 G61 B61    R62 G62 B62    R63 G63 B63 |                       GIndex  = yIndex * 3 + 1;
-| R70 G70 B70    R71 G71 B71    R72 G72 B72    R73 G73 B73 |                       BIndex  = yIndex * 3 + 2;
-| R80 G80 B80    R81 G81 B81    R82 G82 B82    R83 G83 B83 |
+| R50 G50 B50    R51 G51 B51    R52 G52 B52    R53 G53 B53 |                       uIndex  = (currentRow/2) * width + ((currentCol/2) * 2);
+| R60 G60 B60    R61 G61 B61    R62 G62 B62    R63 G63 B63 |                       RIndex  = yIndex * 3 + 0;
+| R70 G70 B70    R71 G71 B71    R72 G72 B72    R73 G73 B73 |                       GIndex  = yIndex * 3 + 1;
+| R80 G80 B80    R81 G81 B81    R82 G82 B82    R83 G83 B83 |                       BIndex  = yIndex * 3 + 2;
 | R90 G90 B90    R91 G91 B91    R92 G92 B92    R93 G93 B93 |
 |
 Y
