@@ -1,4 +1,5 @@
-#include "main.h"
+#include "../include/main.h"
+#include "../include/mse_psnr.h"
 
 int main() {
     int w = 480, h = 856;
@@ -47,6 +48,12 @@ int main() {
 
     convert("output_480x856_RGB888.yuv", "output_480x856_yuv420p.yuv", w, h, convertRGBtoYUV, false);   
     convert("output_nv12_480x856_RGB888.yuv", "output_rgb888_480x856_nv12.yuv", w, h, convertRGBtoYUVSemiPlanar, false);   
+
+    calculateMSEAndPSNR(
+        ifstream("input_480x856_yuv420p.yuv", ios::binary), 
+        ifstream("output_480x856_yuv420p.yuv", ios::binary), 
+        w, h, 8
+    );
 
     return 0;
 }
